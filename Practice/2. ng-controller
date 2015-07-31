@@ -1,22 +1,37 @@
 //Your app is called myApp
 //Create a controller called myController
 
+var myModule = angular.module('myApp');
+
+var myController = function(){
+	
+};
+
+myModule.controller('myController', myController);
 
 //Instantiate that controller in the html on the body
 
-<body>
+<body ng-controller='myController'>
 
 </body>
-
 *****************************************************
 
 //Your app is called myApp
 //Create a controller called myController that takes a dependency called 'myService' using implicit notation
 
+var theModule = angular.module('myApp');
+
+theModule.controller('myController', function($scope, myService){
+	
+});
+
+theModule.service('myService', function(){
+	
+});
 
 //Instantiate that controller in the html on a div
 
-<div>
+<div ng-controller='myController'>
 
 </div>
 ***************************************************** 
@@ -24,10 +39,16 @@
 //Your app is called tAppDance
 //Create a controller called myController that takes a dependency named 'gettingDown' with an arg name of 'danceMoves'
 
+var dancer = angular.module('tAppDance');
+
+dancer.controller('myController', ['$scope', 'danceBook',function(myScope, myMoves){
+	myScope.performer = "Tappy McTapster";
+}])
 
 //Instantiate that controller in the html on a div
-<div>
 
+<div ng-controller='myController'>
+	{{performer}}
 </div>
 
 
